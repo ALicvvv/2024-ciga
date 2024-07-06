@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjf6lhsxamlrp"]
+
+[ext_resource type="Texture2D" uid="uid://dxaxvh6p7128q" path="res://adds/UI/Spritesheet_UI_Flat.png" id="1_owik5"]
+[ext_resource type="Script" path="res://scripts/stats_paneer.gd" id="1_xm6tt"]
+[ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_vyrvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yenuf"]
+atlas = ExtResource("1_owik5")
+region = Rect2(449, 207, 30, 2)
+
+[node name="StatsPaneer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xm6tt")
+
+[node name="age_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="age_pannel" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 30.0
+offset_bottom = 5.0
+grow_vertical = 0
+scale = Vector2(38.427, 0.814143)
+max_value = 1.0
+step = 0.0
+value = 1.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_yenuf")
+
+[node name="age" type="Label" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 16.0
+offset_right = 1096.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "岁数："
+
+[node name="age_num" type="Label" parent="age"]
+offset_left = 172.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "60"
+
+[node name="gender" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 224.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "幼年"
+
+[connection signal="timeout" from="age_timer" to="." method="_on_age_timer_timeout"]

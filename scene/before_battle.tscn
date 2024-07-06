@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dugjhtynwks0k"]
+[gd_scene load_steps=11 format=3 uid="uid://dugjhtynwks0k"]
 
-[sub_resource type="Theme" id="Theme_pn0w6"]
+[ext_resource type="Script" path="res://scripts/before_battle.gd" id="1_q7y84"]
+[ext_resource type="PackedScene" uid="uid://cjf6lhsxamlrp" path="res://stats_paneer.tscn" id="1_rtwjc"]
+[ext_resource type="PackedScene" uid="uid://6oug3hr3xq5q" path="res://scene/player/pawn/player_pawn_yellow.tscn" id="2_1gr7m"]
+[ext_resource type="PackedScene" uid="uid://c1d0gbo5dsn6m" path="res://scene/player/knight/player_knight_yellow.tscn" id="2_eolsg"]
+[ext_resource type="PackedScene" uid="uid://c68fb34whbqs0" path="res://scene/player/knight/player_knight_blue.tscn" id="3_32oie"]
+[ext_resource type="PackedScene" uid="uid://d33s0v68g5p5e" path="res://scene/player/pawn/player_pawn_blue.tscn" id="3_r4sus"]
+[ext_resource type="PackedScene" uid="uid://qqxcvbqin823" path="res://scene/player/knight/player_knight_red.tscn" id="4_puplq"]
+[ext_resource type="PackedScene" uid="uid://cv2rtj1jbky7u" path="res://scene/player/pawn/player_pawn_red.tscn" id="4_qtkoo"]
+[ext_resource type="PackedScene" uid="uid://7cc8qp5egqr2" path="res://scene/player/knight/player_knight_purple.tscn" id="5_f5oby"]
+[ext_resource type="PackedScene" uid="uid://lsw6l8gjapam" path="res://scene/player/pawn/player_pawn_purple.tscn" id="5_h104p"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_q7y84")
+pawn_yellow = ExtResource("2_1gr7m")
+pawn_blue = ExtResource("3_r4sus")
+pawn_red = ExtResource("4_qtkoo")
+pawn_purple = ExtResource("5_h104p")
+knight_yellow = ExtResource("2_eolsg")
+knight_blue = ExtResource("3_32oie")
+knight_red = ExtResource("4_puplq")
+knight_purple = ExtResource("5_f5oby")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = SubResource("Theme_pn0w6")
+[node name="StatsPaneer" parent="." instance=ExtResource("1_rtwjc")]
+
+[node name="PlayerLocation" type="Marker2D" parent="."]
+position = Vector2(214, 327)
