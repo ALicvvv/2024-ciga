@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://b50cdr423bibx"]
+
+[ext_resource type="Texture2D" uid="uid://mvvxg7hpti64" path="res://adds/characters/mekami/64X128_Idle_Free.png" id="1_5vorr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0qj7"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v2xv"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cok2b"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2raw0"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px0b3"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h6ah"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tvir"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br5xn"]
+atlas = ExtResource("1_5vorr")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0q6oy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0qj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v2xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cok2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2raw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px0b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h6ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tvir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br5xn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="mekami" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0q6oy")
+autoplay = "default"
+frame = 5
+frame_progress = 0.455249

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjf6lhsxamlrp"]
+[gd_scene load_steps=17 format=3 uid="uid://cjf6lhsxamlrp"]
 
 [ext_resource type="Script" path="res://scripts/stats_paneer.gd" id="1_xm6tt"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_vyrvi"]
@@ -47,6 +47,10 @@ region = Rect2(96, 16, 16, 16)
 atlas = ExtResource("4_br6ix")
 region = Rect2(112, 16, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_81o6g"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(128, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3lfvf"]
 animations = [{
 "frames": [{
@@ -73,10 +77,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fckr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81o6g")
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="StatsPaneer" type="Control"]
@@ -88,16 +95,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xm6tt")
 
-[node name="act_timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="age" type="Label" parent="."]
 layout_mode = 0
 offset_left = 896.0
 offset_top = 16.0
 offset_right = 1096.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "岁数："
@@ -108,6 +112,7 @@ offset_left = 172.0
 offset_top = 16.0
 offset_right = 372.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "60"
@@ -119,6 +124,7 @@ offset_top = 118.0
 offset_right = 1098.0
 offset_bottom = 194.0
 scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "体力："
@@ -129,6 +135,7 @@ offset_left = 172.0
 offset_top = 16.0
 offset_right = 372.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "10"
@@ -140,6 +147,7 @@ offset_top = 176.0
 offset_right = 1128.0
 offset_bottom = 252.0
 scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "持久："
@@ -150,6 +158,7 @@ offset_left = 172.0
 offset_top = 16.0
 offset_right = 372.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "10"
@@ -161,6 +170,7 @@ offset_top = 231.0
 offset_right = 1128.0
 offset_bottom = 307.0
 scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "攻击："
@@ -171,6 +181,7 @@ offset_left = 172.0
 offset_top = 16.0
 offset_right = 372.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "10"
@@ -181,9 +192,10 @@ offset_left = 437.0
 offset_top = 17.0
 offset_right = 694.0
 offset_bottom = 93.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
-text = "行动点：4"
+text = "行动点："
 
 [node name="act_point_num" type="Label" parent="act_point"]
 layout_mode = 0
@@ -191,6 +203,7 @@ offset_left = 228.0
 offset_top = 16.0
 offset_right = 428.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "4"
@@ -201,22 +214,29 @@ offset_left = 24.0
 offset_top = 16.0
 offset_right = 224.0
 offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "幼年"
 
-[node name="Action1" type="TextureButton" parent="."]
-offset_left = 216.0
-offset_top = 446.0
-offset_right = 338.0
-offset_bottom = 496.0
+[node name="ActionContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Action1" type="TextureButton" parent="ActionContainer"]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 532.0
+offset_right = 349.0
+offset_bottom = 582.0
 scale = Vector2(0.986365, 1)
-toggle_mode = true
 texture_normal = SubResource("AtlasTexture_l3ttk")
 texture_pressed = SubResource("AtlasTexture_pmd2r")
+texture_disabled = SubResource("AtlasTexture_pmd2r")
 stretch_mode = 5
 
-[node name="name" type="Label" parent="Action1"]
+[node name="Act1name" type="Label" parent="ActionContainer/Action1"]
 layout_mode = 0
 offset_left = 97.327
 offset_top = 10.0
@@ -229,13 +249,80 @@ text = "吃奶"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(187, 418)
-scale = Vector2(2, 2)
+[node name="Act1Timer" type="AnimatedSprite2D" parent="ActionContainer/Action1"]
+position = Vector2(60.8294, 18)
+scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
-frame = 5
-frame_progress = 0.825271
+frame = 8
+frame_progress = 1.0
 speed_scale = 1.5
 
-[connection signal="timeout" from="act_timer" to="." method="_on_age_timer_timeout"]
-[connection signal="button_down" from="Action1" to="." method="_on_action_1_button_down"]
+[node name="Action2" type="TextureButton" parent="ActionContainer"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 532.0
+offset_right = 583.0
+offset_bottom = 582.0
+scale = Vector2(0.986365, 1)
+texture_normal = SubResource("AtlasTexture_l3ttk")
+texture_pressed = SubResource("AtlasTexture_pmd2r")
+texture_disabled = SubResource("AtlasTexture_pmd2r")
+stretch_mode = 5
+
+[node name="Act2name" type="Label" parent="ActionContainer/Action2"]
+layout_mode = 0
+offset_left = 97.327
+offset_top = 10.0
+offset_right = 157.327
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 30
+text = "吃奶"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Act2Timer" type="AnimatedSprite2D" parent="ActionContainer/Action2"]
+position = Vector2(60.8294, 16)
+scale = Vector2(4.43548, 4.375)
+sprite_frames = SubResource("SpriteFrames_3lfvf")
+frame = 8
+frame_progress = 1.0
+speed_scale = 1.5
+
+[node name="Action3" type="TextureButton" parent="ActionContainer"]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 532.0
+offset_right = 821.0
+offset_bottom = 582.0
+scale = Vector2(0.986365, 1)
+texture_normal = SubResource("AtlasTexture_l3ttk")
+texture_pressed = SubResource("AtlasTexture_pmd2r")
+texture_disabled = SubResource("AtlasTexture_pmd2r")
+stretch_mode = 5
+
+[node name="Act3name" type="Label" parent="ActionContainer/Action3"]
+layout_mode = 0
+offset_left = 97.327
+offset_top = 10.0
+offset_right = 157.327
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 30
+text = "吃奶"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Act3Timer" type="AnimatedSprite2D" parent="ActionContainer/Action3"]
+position = Vector2(60.8294, 15)
+scale = Vector2(4.43548, 4.375)
+sprite_frames = SubResource("SpriteFrames_3lfvf")
+frame = 8
+frame_progress = 1.0
+speed_scale = 1.5
+
+[connection signal="pressed" from="ActionContainer/Action1" to="." method="_on_action_1_pressed"]
+[connection signal="pressed" from="ActionContainer/Action2" to="." method="_on_action_2_pressed"]
+[connection signal="pressed" from="ActionContainer/Action3" to="." method="_on_action_3_pressed"]

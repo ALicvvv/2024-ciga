@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://bf24gigj38dhi"]
+[gd_scene load_steps=6 format=3 uid="uid://bf24gigj38dhi"]
 
-[node name="Node" type="Node"]
+[ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_vh6ni"]
+[ext_resource type="Texture2D" uid="uid://d1sy8mphvshqw" path="res://adds/env/bg/battle/background1.png" id="1_x3cas"]
+[ext_resource type="Texture2D" uid="uid://cwg6dgwpp8uh7" path="res://adds/env/bg/battle/background2.png" id="2_le6kj"]
+[ext_resource type="Texture2D" uid="uid://b4tg22jjj12le" path="res://adds/env/bg/battle/background3.png" id="3_7754g"]
+[ext_resource type="Texture2D" uid="uid://c8vxt0gx3y3m5" path="res://adds/env/bg/battle/background4a.png" id="4_n3kqq"]
+
+[node name="battleScene" type="Node"]
+script = ExtResource("1_vh6ni")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="deco" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="BackGround" type="ParallaxBackground" parent="deco"]
+
+[node name="BackGround1" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround1"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("1_x3cas")
+
+[node name="BackGround2" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround2"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("2_le6kj")
+
+[node name="BackGround3" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround3"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("3_7754g")
+
+[node name="BackGround5" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround5"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("4_n3kqq")
+
+[node name="player1" type="Marker2D" parent="."]
+position = Vector2(218, 341)
+
+[node name="player2" type="Marker2D" parent="."]
+position = Vector2(328, 477)
+
+[node name="enemy" type="Marker2D" parent="."]
+position = Vector2(926, 365)

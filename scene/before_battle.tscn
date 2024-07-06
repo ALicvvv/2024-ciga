@@ -1,20 +1,66 @@
-[gd_scene load_steps=7 format=3 uid="uid://dugjhtynwks0k"]
+[gd_scene load_steps=9 format=3 uid="uid://dugjhtynwks0k"]
 
 [ext_resource type="Script" path="res://scripts/before_battle.gd" id="1_q7y84"]
 [ext_resource type="PackedScene" uid="uid://cjf6lhsxamlrp" path="res://stats_paneer.tscn" id="1_rtwjc"]
-[ext_resource type="PackedScene" uid="uid://c1d0gbo5dsn6m" path="res://scene/player/knight/player_knight_yellow.tscn" id="2_eolsg"]
-[ext_resource type="PackedScene" uid="uid://c68fb34whbqs0" path="res://scene/player/knight/player_knight_blue.tscn" id="3_32oie"]
-[ext_resource type="PackedScene" uid="uid://qqxcvbqin823" path="res://scene/player/knight/player_knight_red.tscn" id="4_puplq"]
-[ext_resource type="PackedScene" uid="uid://7cc8qp5egqr2" path="res://scene/player/knight/player_knight_purple.tscn" id="5_f5oby"]
+[ext_resource type="Texture2D" uid="uid://dtonsbmxv2cmh" path="res://adds/env/bg/live/Hills Layer 01.png" id="7_byeq2"]
+[ext_resource type="Texture2D" uid="uid://d16b7l5qieub4" path="res://adds/env/bg/live/Hills Layer 02.png" id="8_28qpl"]
+[ext_resource type="Texture2D" uid="uid://daej27rxeftf3" path="res://adds/env/bg/live/Hills Layer 03.png" id="9_0b3bn"]
+[ext_resource type="Texture2D" uid="uid://cepbm15qb5iah" path="res://adds/env/bg/live/Hills Layer 05.png" id="11_punqy"]
+[ext_resource type="Texture2D" uid="uid://4iv7xtathiq2" path="res://adds/env/bg/live/Hills Layer 06.png" id="12_8y7ll"]
+[ext_resource type="PackedScene" uid="uid://b50cdr423bibx" path="res://scene/mekami.tscn" id="12_sm16k"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_q7y84")
-knight_yellow = ExtResource("2_eolsg")
-knight_blue = ExtResource("3_32oie")
-knight_red = ExtResource("4_puplq")
-knight_purple = ExtResource("5_f5oby")
 
 [node name="StatsPaneer" parent="." instance=ExtResource("1_rtwjc")]
 
 [node name="PlayerLocation" type="Marker2D" parent="."]
-position = Vector2(214, 327)
+position = Vector2(155, 600)
+
+[node name="deco" type="Node2D" parent="."]
+
+[node name="BackGround" type="ParallaxBackground" parent="deco"]
+
+[node name="BackGround1" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround1"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("7_byeq2")
+
+[node name="BackGround2" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround2"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("8_28qpl")
+
+[node name="BackGround3" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround3"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("9_0b3bn")
+
+[node name="BackGround5" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround5"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("11_punqy")
+
+[node name="BackGround6" type="ParallaxLayer" parent="deco/BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="deco/BackGround/BackGround6"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("12_8y7ll")
+
+[node name="mekami" parent="." instance=ExtResource("12_sm16k")]
+position = Vector2(901, 553)
+scale = Vector2(3.72, 3.72)

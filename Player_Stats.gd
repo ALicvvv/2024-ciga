@@ -1,10 +1,12 @@
-class_name Stats
+class_name Player_Stats
 extends Node
 
 signal health_change
 signal atk_change
 signal def_change
 signal age_change
+signal speed_change
+signal ap_change
 enum Gender{#for player
 	CHILD, #0 <= age < 12
 	YOUTH, #12 <= age < 24
@@ -15,7 +17,15 @@ enum Gender{#for player
 @export var init_atk: int = 8
 @export var init_def: int = 6
 @export var init_age: int = 0
- 
+@export var init_speed: float = 0
+@export var init_action_points: int = 10
+
+@export var action_points: int = 10:
+	set(v):
+		if action_points == v:
+			return
+		action_points = v
+		ap_change.emit()
 @onready var health: int = init_health:
 	set(v):
 		if health == v:
@@ -40,4 +50,10 @@ enum Gender{#for player
 			return
 		age = v
 		age_change.emit()
+@onready var speed: float = init_speed:
+	set(v):
+		if speed == v:
+			return
+		speed = v
+		speed_change.emit()
 @onready var colorChoose: String
