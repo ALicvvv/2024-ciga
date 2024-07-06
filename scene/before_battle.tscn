@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dugjhtynwks0k"]
+
+[sub_resource type="Theme" id="Theme_pn0w6"]
+
+[node name="Node" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_pn0w6")
