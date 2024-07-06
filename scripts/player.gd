@@ -4,5 +4,4 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	animation_player.play("idle")
-	
 

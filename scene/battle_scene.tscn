@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf24gigj38dhi"]
+[gd_scene load_steps=8 format=3 uid="uid://bf24gigj38dhi"]
 
 [ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_vh6ni"]
 [ext_resource type="Texture2D" uid="uid://d1sy8mphvshqw" path="res://adds/env/bg/battle/background1.png" id="1_x3cas"]
 [ext_resource type="Texture2D" uid="uid://cwg6dgwpp8uh7" path="res://adds/env/bg/battle/background2.png" id="2_le6kj"]
 [ext_resource type="Texture2D" uid="uid://b4tg22jjj12le" path="res://adds/env/bg/battle/background3.png" id="3_7754g"]
 [ext_resource type="Texture2D" uid="uid://c8vxt0gx3y3m5" path="res://adds/env/bg/battle/background4a.png" id="4_n3kqq"]
+[ext_resource type="PackedScene" uid="uid://cdc4okklaihrc" path="res://scene/hp_panner.tscn" id="7_tn5o2"]
+[ext_resource type="PackedScene" uid="uid://b0fp8rqpbi1pn" path="res://scene/devil_hp_panner.tscn" id="8_3lnn0"]
 
 [node name="battleScene" type="Node"]
 script = ExtResource("1_vh6ni")
@@ -49,10 +51,31 @@ scale = Vector2(2.6, 2.6)
 texture = ExtResource("4_n3kqq")
 
 [node name="player1" type="Marker2D" parent="."]
-position = Vector2(218, 341)
+position = Vector2(197, 439)
+
+[node name="p1_hp_panner" parent="player1" instance=ExtResource("7_tn5o2")]
+offset_left = -89.0
+offset_top = 1.0
+offset_right = -89.0
+offset_bottom = 1.0
+scale = Vector2(2.25, 2.25)
 
 [node name="player2" type="Marker2D" parent="."]
 position = Vector2(328, 477)
 
+[node name="p2_hp_panner" parent="player2" instance=ExtResource("7_tn5o2")]
+offset_left = -79.0
+offset_top = -1.0
+offset_right = -79.0
+offset_bottom = -1.0
+scale = Vector2(2.25, 2.25)
+
 [node name="enemy" type="Marker2D" parent="."]
-position = Vector2(926, 365)
+position = Vector2(920, 263)
+
+[node name="enemy_hp_panner" parent="enemy" instance=ExtResource("8_3lnn0")]
+offset_left = -344.0
+offset_top = -378.0
+offset_right = -344.0
+offset_bottom = -378.0
+scale = Vector2(9.45219, 9.45219)

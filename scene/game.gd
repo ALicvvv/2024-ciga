@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var player_stats: Player_Stats = $Player_Stats
 @onready var color_rect: ColorRect = $ColorRect
 
-@export var current_devil: int = 2
+@export var current_devil: int = 1
 @export var player_color_cur: String = "yellow"
 @export var player_color_before: String = "yellow"
 

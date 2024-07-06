@@ -76,7 +76,6 @@ func _on_action_1_pressed() -> void:
 		Game.go_to_battle()
 
 
-
 func _on_action_2_pressed() -> void:
 	disable_button()
 	action_point -= 1

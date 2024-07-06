@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0fp8rqpbi1pn"]
+
+[ext_resource type="Texture2D" uid="uid://cxsxwi0u42023" path="res://adds/04.png" id="1_r27gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5n0t"]
+atlas = ExtResource("1_r27gt")
+region = Rect2(6, 147, 38, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_368i5"]
+atlas = ExtResource("1_r27gt")
+region = Rect2(57, 133, 32, 5)
+
+[node name="hp_panner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 67.0
+offset_bottom = 56.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_over = SubResource("AtlasTexture_b5n0t")
+texture_progress = SubResource("AtlasTexture_368i5")
+texture_progress_offset = Vector2(3, 2)
