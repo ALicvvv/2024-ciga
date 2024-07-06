@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0fp8rqpbi1pn"]
+[gd_scene load_steps=5 format=3 uid="uid://b0fp8rqpbi1pn"]
 
+[ext_resource type="Script" path="res://scene/devil_hp_panner.gd" id="1_7ovxl"]
 [ext_resource type="Texture2D" uid="uid://cxsxwi0u42023" path="res://adds/04.png" id="1_r27gt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5n0t"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7ovxl")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0

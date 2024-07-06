@@ -59,7 +59,7 @@ func update_ap() -> void:
 func disable_button() -> void:
 	for button: TextureButton in action_container.get_children():
 		button.disabled = true
-func sable_button() -> void:
+func able_button() -> void:
 	for button: TextureButton in action_container.get_children():
 		button.disabled = false
 func _on_action_1_pressed() -> void:
@@ -67,21 +67,20 @@ func _on_action_1_pressed() -> void:
 	action_point -= 1
 	act_1_timer.play()
 	await act_1_timer.animation_finished
-	sable_button()
+	able_button()
 	print("[行动点]: %s" % [action_point])
 	if action_point > 0:
 		stats.action_points = action_point
 	else:
 		stats.action_points = stats.init_action_points
 		Game.go_to_battle()
-
 
 func _on_action_2_pressed() -> void:
 	disable_button()
 	action_point -= 1
 	act_2_timer.play()
 	await act_2_timer.animation_finished
-	sable_button()
+	able_button()
 	print("[行动点]: %s" % [action_point])
 	if action_point > 0:
 		stats.action_points = action_point
@@ -89,13 +88,12 @@ func _on_action_2_pressed() -> void:
 		stats.action_points = stats.init_action_points
 		Game.go_to_battle()
 
-
 func _on_action_3_pressed() -> void:
 	disable_button()
 	action_point -= 1
 	act_3_timer.play()
 	await act_3_timer.animation_finished
-	sable_button()
+	able_button()
 	print("[行动点]: %s" % [action_point])
 	if action_point > 0:
 		stats.action_points = action_point

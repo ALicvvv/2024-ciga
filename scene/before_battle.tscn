@@ -62,5 +62,5 @@ scale = Vector2(2.6, 2.6)
 texture = ExtResource("12_8y7ll")
 
 [node name="mekami" parent="." instance=ExtResource("12_sm16k")]
-position = Vector2(901, 553)
+position = Vector2(1042, 560)
 scale = Vector2(3.72, 3.72)

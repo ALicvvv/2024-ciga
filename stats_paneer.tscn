@@ -96,6 +96,7 @@ grow_vertical = 2
 script = ExtResource("1_xm6tt")
 
 [node name="age" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 896.0
 offset_top = 16.0

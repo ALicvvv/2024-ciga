@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://5thjyjl8po44"]
+[gd_scene load_steps=11 format=3 uid="uid://5thjyjl8po44"]
 
 [ext_resource type="Texture2D" uid="uid://ehier0cu667s" path="res://adds/monster/deadth/idle.png" id="1_dxurp"]
+[ext_resource type="Script" path="res://scripts/devil.gd" id="1_jw1j3"]
 [ext_resource type="Texture2D" uid="uid://b3qxmanga1wb0" path="res://adds/monster/deadth/attacking.png" id="2_21hpr"]
 [ext_resource type="Texture2D" uid="uid://jt5cr270df50" path="res://adds/monster/deadth/death.png" id="3_8iafj"]
 
@@ -73,6 +74,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_dd4yt"]
 resource_name = "attack"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -132,6 +134,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Battle_Devil"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_plsj6"]
@@ -272,6 +288,7 @@ _data = {
 }
 
 [node name="devil" type="CharacterBody2D"]
+script = ExtResource("1_jw1j3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 2)
