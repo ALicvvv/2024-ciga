@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d33s0v68g5p5e"]
+[gd_scene load_steps=11 format=3 uid="uid://d33s0v68g5p5e"]
 
 [ext_resource type="Texture2D" uid="uid://cqg57ehrao1hd" path="res://adds/characters/pawn/Pawn_Blue.png" id="1_76b7x"]
+[ext_resource type="Script" path="res://scripts/player_pre.gd" id="1_c2eeq"]
 [ext_resource type="Texture2D" uid="uid://bukavpyin3rj7" path="res://adds/characters/Dead.png" id="2_wm1s2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr71e"]
@@ -336,6 +337,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_c2eeq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)

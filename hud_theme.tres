@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d1ffx7807ybtq"]
+
+[ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="1_6jb30"]
+[ext_resource type="Texture2D" uid="uid://bh582kmxkqb41" path="res://adds/UI/tiny sword UI/Buttons/Button_Blue_3Slides.png" id="2_3kuf8"]
+[ext_resource type="Texture2D" uid="uid://5ucyvo518he6" path="res://adds/UI/tiny sword UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_0ayiq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdiao"]
+texture = ExtResource("2_3kuf8")
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wfe7e"]
+texture = ExtResource("3_0ayiq")
+texture_margin_bottom = 15.0
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_6jb30")
+Button/styles/hover = SubResource("StyleBoxTexture_kdiao")
+Button/styles/normal = SubResource("StyleBoxTexture_kdiao")
+Button/styles/pressed = SubResource("StyleBoxTexture_wfe7e")

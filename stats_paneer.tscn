@@ -1,12 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjf6lhsxamlrp"]
+[gd_scene load_steps=16 format=3 uid="uid://cjf6lhsxamlrp"]
 
-[ext_resource type="Texture2D" uid="uid://dxaxvh6p7128q" path="res://adds/UI/Spritesheet_UI_Flat.png" id="1_owik5"]
 [ext_resource type="Script" path="res://scripts/stats_paneer.gd" id="1_xm6tt"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_vyrvi"]
+[ext_resource type="Texture2D" uid="uid://e3brtk0a2lt0" path="res://adds/UI/07.png" id="4_br6ix"]
+[ext_resource type="Texture2D" uid="uid://cfqodqhsc6u18" path="res://adds/UI/00.png" id="4_ot5br"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yenuf"]
-atlas = ExtResource("1_owik5")
-region = Rect2(449, 207, 30, 2)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ttk"]
+atlas = ExtResource("4_ot5br")
+region = Rect2(196, 16, 18, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmd2r"]
+atlas = ExtResource("4_ot5br")
+region = Rect2(218, 16, 18, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg8dr"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhnle"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0e4p"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg136"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr52r"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ooh8"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soatl"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fckr7"]
+atlas = ExtResource("4_br6ix")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3lfvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg8dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhnle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0e4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg136")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr52r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ooh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soatl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fckr7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="StatsPaneer" type="Control"]
 layout_mode = 3
@@ -17,25 +88,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xm6tt")
 
-[node name="age_timer" type="Timer" parent="."]
+[node name="act_timer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
-
-[node name="age_pannel" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -27.0
-offset_right = 30.0
-offset_bottom = 5.0
-grow_vertical = 0
-scale = Vector2(38.427, 0.814143)
-max_value = 1.0
-step = 0.0
-value = 1.0
-nine_patch_stretch = true
-texture_progress = SubResource("AtlasTexture_yenuf")
+one_shot = true
 
 [node name="age" type="Label" parent="."]
 layout_mode = 0
@@ -48,6 +103,7 @@ theme_override_font_sizes/font_size = 57
 text = "岁数："
 
 [node name="age_num" type="Label" parent="age"]
+layout_mode = 0
 offset_left = 172.0
 offset_top = 16.0
 offset_right = 372.0
@@ -55,6 +111,89 @@ offset_bottom = 92.0
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "60"
+
+[node name="health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 898.0
+offset_top = 118.0
+offset_right = 1098.0
+offset_bottom = 194.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "体力："
+
+[node name="health_num" type="Label" parent="health"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "10"
+
+[node name="def" type="Label" parent="."]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 176.0
+offset_right = 1128.0
+offset_bottom = 252.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "持久："
+
+[node name="def_num" type="Label" parent="def"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "10"
+
+[node name="atk" type="Label" parent="."]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 231.0
+offset_right = 1128.0
+offset_bottom = 307.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "攻击："
+
+[node name="atk_num" type="Label" parent="atk"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "10"
+
+[node name="act_point" type="Label" parent="."]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 17.0
+offset_right = 694.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "行动点：4"
+
+[node name="act_point_num" type="Label" parent="act_point"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 16.0
+offset_right = 428.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 57
+text = "4"
 
 [node name="gender" type="Label" parent="."]
 layout_mode = 0
@@ -66,4 +205,37 @@ theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "幼年"
 
-[connection signal="timeout" from="age_timer" to="." method="_on_age_timer_timeout"]
+[node name="Action1" type="TextureButton" parent="."]
+offset_left = 216.0
+offset_top = 446.0
+offset_right = 338.0
+offset_bottom = 496.0
+scale = Vector2(0.986365, 1)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_l3ttk")
+texture_pressed = SubResource("AtlasTexture_pmd2r")
+stretch_mode = 5
+
+[node name="name" type="Label" parent="Action1"]
+layout_mode = 0
+offset_left = 97.327
+offset_top = 10.0
+offset_right = 157.327
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyrvi")
+theme_override_font_sizes/font_size = 30
+text = "吃奶"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(187, 418)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3lfvf")
+frame = 5
+frame_progress = 0.825271
+speed_scale = 1.5
+
+[connection signal="timeout" from="act_timer" to="." method="_on_age_timer_timeout"]
+[connection signal="button_down" from="Action1" to="." method="_on_action_1_button_down"]

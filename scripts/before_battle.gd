@@ -1,10 +1,5 @@
 extends Node
 
-@export_group("平民组")
-@export var pawn_yellow: PackedScene
-@export var pawn_blue: PackedScene
-@export var pawn_red: PackedScene
-@export var pawn_purple: PackedScene
 @export_group("骑士组")
 @export var knight_yellow: PackedScene
 @export var knight_blue: PackedScene

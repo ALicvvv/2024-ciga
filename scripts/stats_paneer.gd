@@ -6,24 +6,26 @@ enum Gender{#for player
 	ADULT, #24 <= age < 50
 	ELDER, #50 <= age < 60
 }
-@onready var age_pannel: TextureProgressBar = $age_pannel
-@onready var age_timer: Timer = $age_timer
+
 @onready var age_num: Label = $age/age_num
+@onready var health_num: Label = $health/health_num
+@onready var def_num: Label = $def/def_num
+@onready var atk_num: Label = $atk/atk_num
 @onready var gender: Label = $gender
+@onready var act_point_num: Label = $act_point/act_point_num
 
 @export var stats: Stats
+@export var action_point: int = 4
 
 var bar_percentage: float
 
 func _ready() -> void:
 	stats = Game.player_stats
 	stats.age_change.connect(update_age)
-	age_pannel.set_value_no_signal(0.0)
-
-func _process(delta: float) -> void:
-	bar_percentage = 1 - age_timer.time_left/age_timer.wait_time
-	#print(age_timer.time_left)
-	age_pannel.set_value_no_signal(bar_percentage)
+	act_point_num.text = str(action_point)
+	health_num.text = str(stats.health)
+	atk_num.text = str(stats.atk)
+	def_num.text = str(stats.def)
 
 func update_age() -> void:
 	age_num.text = str(stats.age)
@@ -39,3 +41,7 @@ func update_age() -> void:
 func _on_age_timer_timeout() -> void:
 	stats.age += 1
 	print(stats.age)
+
+
+func _on_action_1_button_down() -> void:
+	print("豪赤")
