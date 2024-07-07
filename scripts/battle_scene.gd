@@ -32,6 +32,9 @@ var p1_damge
 var player_2_animation: AnimationPlayer
 var devil_animation: AnimationPlayer
 var devil_damge
+var dead_p1:bool = false
+var dead_p2:bool = false
+var has_p2:bool = false
 
 func _ready() -> void:
 	p_1_hp_panner.hide()
@@ -63,12 +66,25 @@ func _ready() -> void:
 	add_child(player1)
 	p_1_hp_panner.show()
 	player_1_animation = player1.get_node("AnimationPlayer")
-	player1.pHit.connect(handle_pdamage)
+	player1.pHit.connect(handle_pdamage1)
 	player_1_animation.play("attack", -1, player_stats.speed)
+	
+	if 2 in Game.player_stats.genshin_func:
+		has_p2 = true
+		Game.player_stats.genshin_func.erase(2)
+		var p2_color = Game.player_color_cur
+		var player2_scene: PackedScene = knight_dict[p1_color]
+		var player2 = player2_scene.instantiate()
+		player2.position = player_2.position
+		add_child(player2)
+		p_2_hp_panner.show()
+		player_2_animation = player2.get_node("AnimationPlayer")
+		player2.pHit.connect(handle_pdamage2)
+		player_2_animation.play("attack", -1, player_stats.speed)
 
-func handle_pdamage(p_damge, dhealth) -> void:
+func handle_pdamage1(p_damge, dhealth) -> void:
 	var position = enemy_damage_pop.position
-	print("--------------------handle_pdamage--------------------")
+	print("--------------------handle_pdamage1--------------------")
 	ppop_up(position, p_damge)
 	if dhealth < 0:
 		Game.current_devil += 1
@@ -76,6 +92,13 @@ func handle_pdamage(p_damge, dhealth) -> void:
 		devil_animation.play("dead")
 		await devil_animation.animation_finished
 		Game.new_game()
+
+func handle_pdamage2(p_damge, dhealth) -> void:
+	var position = enemy_damage_pop.position
+	print("--------------------handle_pdamage2--------------------")
+	ppop_up(position, p_damge)
+	if dhealth < 0:
+		player_2_animation.play("idle")
 
 func handle_ddamage(d_damge, phealth) -> void:
 	var position = p_1_damge_pop.position
@@ -85,6 +108,8 @@ func handle_ddamage(d_damge, phealth) -> void:
 		Game.reSpawn()
 		devil_animation.play("idle")
 		player_1_animation.play("dead")
+		if has_p2:
+			player_2_animation.play("dead")
 		await player_1_animation.animation_finished
 		Game.new_game()
 

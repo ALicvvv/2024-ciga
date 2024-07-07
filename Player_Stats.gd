@@ -26,6 +26,9 @@ enum Gender{#for player
 @export var init_speed: float = 0
 @export var init_action_points: int = 10
 
+@export var genshin_func: Array = []
+@export var devil_func: Array = []
+
 @export var action_points: int = 10:
 	set(v):
 		if action_points == v:

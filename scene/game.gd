@@ -53,7 +53,6 @@ func reSpawn() -> void:
 		player_stats.init_criticalDamage = player_stats.init_criticalDamage * 1.2
 		player_stats.init_speed = player_stats.init_speed * 1.2
 
-
 func go_to_battle() -> void:
 	player_stats.init_health = player_stats.health
 	player_stats.init_atk = player_stats.atk

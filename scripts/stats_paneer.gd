@@ -17,10 +17,6 @@ signal button_ready
 @onready var speed_num: Label = $dataPannel/speed/speed_num
 @onready var luck_num: Label = $dataPannel/luck/luck_num
 
-
-
-
-
 @onready var action_container: Control = $ActionContainer
 @onready var act_1_name: Label = $ActionContainer/Action1/Act1name
 @onready var act_1_timer: AnimatedSprite2D = $ActionContainer/Action1/Act1Timer
@@ -34,13 +30,15 @@ signal button_ready
 @onready var act_1_fx: AnimatedSprite2D = $ActionContainer/Action1/Act1Fx
 @onready var act_2_fx: AnimatedSprite2D = $ActionContainer/Action2/Act2Fx
 @onready var act_3_fx: AnimatedSprite2D = $ActionContainer/Action3/Act3Fx
-
 @export var stats: Player_Stats
+
 var act1_func
 var act2_func
 var act3_func
+
 var action_point: int
 var bar_percentage: float
+
 var promoted_properties_dict = {
 	"hp" : ["吃奶","吃牛","提升意志"],
 	"atk": ["打木桩","打石头"],
