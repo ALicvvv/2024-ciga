@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwdklh1fpy2dx"]
+
+[ext_resource type="Theme" uid="uid://d1ffx7807ybtq" path="res://hud_theme.tres" id="1_fv56j"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_55eiy"]
+[ext_resource type="Theme" uid="uid://sy1esufbga6h" path="res://main_menu.tres" id="2_64w6x"]
+[ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_y7nwt"]
+[ext_resource type="Texture2D" uid="uid://dtonsbmxv2cmh" path="res://adds/env/bg/live/Hills Layer 01.png" id="5_7jlbp"]
+[ext_resource type="Texture2D" uid="uid://d16b7l5qieub4" path="res://adds/env/bg/live/Hills Layer 02.png" id="6_oam8a"]
+[ext_resource type="Texture2D" uid="uid://daej27rxeftf3" path="res://adds/env/bg/live/Hills Layer 03.png" id="7_55wy7"]
+[ext_resource type="Texture2D" uid="uid://cepbm15qb5iah" path="res://adds/env/bg/live/Hills Layer 05.png" id="8_1n7t3"]
+[ext_resource type="Texture2D" uid="uid://4iv7xtathiq2" path="res://adds/env/bg/live/Hills Layer 06.png" id="9_avvpy"]
+[ext_resource type="Texture2D" uid="uid://c8vxt0gx3y3m5" path="res://adds/env/bg/battle/background4a.png" id="10_knshx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fv56j")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -300.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="StartGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme = ExtResource("2_64w6x")
+text = "开始游戏"
+script = ExtResource("2_55eiy")
+
+[node name="Exit" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme = ExtResource("2_64w6x")
+text = "退出游戏"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_top = 135.0
+offset_right = 264.0
+offset_bottom = 251.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.631373, 0.827451, 0.780392, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/normal_font = ExtResource("2_y7nwt")
+theme_override_font_sizes/normal_font_size = 120
+text = "无限勇者"
+scroll_active = false
+tab_size = 0
+
+[node name="BackGround" type="ParallaxBackground" parent="."]
+
+[node name="BackGround1" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround1"]
+position = Vector2(208.7, 112.6)
+scale = Vector2(2.25898, 2.55781)
+texture = ExtResource("5_7jlbp")
+
+[node name="BackGround2" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround2"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("6_oam8a")
+
+[node name="BackGround3" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround3"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("7_55wy7")
+
+[node name="BackGround5" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround5"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("8_1n7t3")
+
+[node name="BackGround6" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround6"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("9_avvpy")
+
+[node name="BackGround7" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+scale = Vector2(0.545, 0.545)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround7"]
+position = Vector2(381.651, 203.67)
+scale = Vector2(2.20979, 2.51177)
+texture = ExtResource("10_knshx")
+
+[connection signal="pressed" from="Menu/StartGame" to="Menu/StartGame" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="Menu/StartGame" method="_on_exit_pressed"]
