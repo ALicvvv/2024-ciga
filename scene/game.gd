@@ -15,7 +15,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	color_rect.color.a = 0
-	
+
 func change_scene(path) -> void:
 	var duration = 0.2
 	var tree = get_tree()
@@ -32,7 +32,6 @@ func change_scene(path) -> void:
 	tween.tween_property(color_rect, "color:a", 0, duration)
 
 func new_game() -> void:
-
 	change_scene("res://scene/before_battle.tscn")
 	player_stats.health = player_stats.init_health
 	player_stats.atk = player_stats.init_atk
