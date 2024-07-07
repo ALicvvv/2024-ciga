@@ -44,15 +44,15 @@ func new_game() -> void:
 func reSpawn() -> void:
 	player_stats.gender += 1
 	var genshin_3_count = player_stats.genshin_func.count(3)
-	player_stats.init_health = player_stats.init_health * (1.2 + genshin_3_count * 0.15)
-	player_stats.init_atk = player_stats.init_atk * (1.2 + genshin_3_count * 0.15)
-	player_stats.init_def = player_stats.init_def * (1.2 + genshin_3_count * 0.15)
+	player_stats.init_health = player_stats.init_health * (1.2 + genshin_3_count * 0.06)
+	player_stats.init_atk = player_stats.init_atk * (1.2 + genshin_3_count * 0.06)
+	player_stats.init_def = player_stats.init_def * (1.2 + genshin_3_count * 0.06)
 	player_stats.init_luck = player_stats.init_luck
 	var lucky = randf()
 	if lucky <= player_stats.init_luck:
 		player_stats.init_critical = player_stats.init_critical * 1.2
 		player_stats.init_criticalDamage = player_stats.init_criticalDamage * 1.2
-		player_stats.init_speed = player_stats.init_speed * 1.2
+		player_stats.init_speed = player_stats.init_speed * 1.1
 
 func go_to_battle() -> void:
 	player_stats.init_health = player_stats.health
@@ -64,6 +64,9 @@ func go_to_battle() -> void:
 	player_stats.init_speed = player_stats.speed
 	heal_devil()
 	change_scene("res://scene/battle_scene.tscn")
+
+func end_game() -> void:
+	change_scene("res://end_game.tscn")
 
 func heal_devil() -> void:
 	devil_1_stats.health += (devil_1_stats.init_health - devil_1_stats.health) * 0.95

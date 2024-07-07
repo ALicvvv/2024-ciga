@@ -169,13 +169,13 @@ func show_fx(act_fx: AnimatedSprite2D, param) -> void:
 		act_fx.play("sp")
 
 func handle_genshin_0(count:int) -> void:
-	stats.health = stats.health * (1 + 0.1 * count)
-	stats.atk = stats.atk * (1 + 0.1 * count)
-	stats.def = stats.def * (1 + 0.1 * count)
-	stats.critical = stats.critical * (1 + 0.1 * count)
-	stats.criticalDamage = stats.criticalDamage * (1 + 0.1 * count)
-	stats.luck = stats.luck * (1 + 0.1 * count)
-	stats.speed = stats.speed * (1 + 0.1 * count)
+	stats.health = stats.health * (1 + 0.02 * count)
+	stats.atk = stats.atk * (1 + 0.02 * count)
+	stats.def = stats.def * (1 + 0.02 * count)
+	stats.critical = stats.critical * (1 + 0.01 * count)
+	stats.criticalDamage = stats.criticalDamage * (1 + 0.02 * count)
+	stats.luck = stats.luck * (1 + 0.01 * count)
+	stats.speed = stats.speed * (1 + 0.01 * count)
 
 func handle_button(param: Array) -> void:
 	var genshin_0_count = stats.genshin_func.count(0)
@@ -186,31 +186,31 @@ func handle_button(param: Array) -> void:
 		"hp" :
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.health += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.health += (button_value * (1 + 0.03 * genshin_2_count))
 		"atk":
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.atk += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.atk += (button_value * (1 + 0.03 * genshin_2_count))
 		"def": 
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.def += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.def += (button_value * (1 + 0.03 * genshin_2_count))
 		"critical": 
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.critical += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.critical += (button_value * (1 + 0.02 * genshin_2_count))
 		"criticalDamage":
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.criticalDamage += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.criticalDamage += (button_value * (1 + 0.02 * genshin_2_count))
 		"luck":
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.luck += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.luck += (button_value * (1 + 0.01 * genshin_2_count))
 		"speed":
 			action_point -= 1
 			handle_genshin_0(genshin_0_count)
-			stats.speed += (button_value * (1 + 0.1 * genshin_2_count))
+			stats.speed += (button_value * (1 + 0.01 * genshin_2_count))
 		"action_point":
 			action_point += button_value
 

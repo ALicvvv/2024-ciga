@@ -88,6 +88,8 @@ func handle_pdamage1(p_damge, dhealth) -> void:
 	ppop_up(position, p_damge)
 	if dhealth < 0:
 		Game.current_devil += 1
+		if Game.current_devil > 2:
+			Game.end_game()
 		player_1_animation.play("idle")
 		devil_animation.play("dead")
 		await devil_animation.animation_finished

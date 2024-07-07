@@ -35,7 +35,6 @@ layout_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestoryArea/Area2D"]
 position = Vector2(477.97, 32.7586)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vectm")
 
 [node name="Label" type="Label" parent="DestoryArea"]

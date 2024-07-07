@@ -137,6 +137,7 @@ theme_override_font_sizes/font_size = 57
 text = "60"
 
 [node name="dataPannel" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -362,7 +363,7 @@ scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 1.5
+speed_scale = 4.0
 
 [node name="Act1Fx" parent="ActionContainer/Action1" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
@@ -400,7 +401,7 @@ scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 1.5
+speed_scale = 4.0
 
 [node name="Act2Fx" parent="ActionContainer/Action2" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
@@ -439,7 +440,7 @@ scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 1.5
+speed_scale = 4.0
 
 [node name="Act3Fx" parent="ActionContainer/Action3" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
