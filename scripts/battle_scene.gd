@@ -71,7 +71,7 @@ func _ready() -> void:
 
 func handle_pdamage(p_damge, dhealth) -> void:
 	var position = enemy_damage_pop.position
-	print("--------------------handle_pdamage")
+	print("--------------------handle_pdamage--------------------")
 	ppop_up(position, p_damge)
 	if dhealth < 0:
 		Game.current_devil += 1
@@ -82,7 +82,7 @@ func handle_pdamage(p_damge, dhealth) -> void:
 
 func handle_ddamage(d_damge, phealth) -> void:
 	var position = p_1_damge_pop.position
-	print("--------------------handle_ddamage")
+	print("--------------------handle_ddamage--------------------")
 	dpop_up(position, d_damge)
 	if phealth < 0:
 		Game.reSpawn()

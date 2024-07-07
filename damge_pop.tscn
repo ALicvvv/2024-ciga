@@ -1,6 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://4h2ftorsqpgl"]
+[gd_scene load_steps=7 format=3 uid="uid://4h2ftorsqpgl"]
 
+[ext_resource type="Shader" path="res://damge_pop.gdshader" id="1_of5nk"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="1_uc1p1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7byw4"]
+shader = ExtResource("1_of5nk")
+shader_parameter/borderScale = 1.0
+shader_parameter/offset = Vector2(-2.57, -1.265)
+shader_parameter/color = Color(0.784314, 0, 0.298039, 1)
+shader_parameter/debug = false
 
 [sub_resource type="Animation" id="Animation_7byir"]
 resource_name = "pop_up"
@@ -94,6 +102,7 @@ _data = {
 [node name="damage_pop" type="Marker2D"]
 
 [node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_7byw4")
 offset_right = 30.0
 offset_bottom = 15.0
 scale = Vector2(1e-05, 1e-05)

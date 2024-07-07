@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjf6lhsxamlrp"]
+[gd_scene load_steps=20 format=3 uid="uid://cjf6lhsxamlrp"]
 
 [ext_resource type="Script" path="res://scripts/stats_paneer.gd" id="1_xm6tt"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_vyrvi"]
+[ext_resource type="Material" uid="uid://djp8pa2qljagl" path="res://wave_text.tres" id="4_bec43"]
 [ext_resource type="Texture2D" uid="uid://e3brtk0a2lt0" path="res://adds/UI/07.png" id="4_br6ix"]
 [ext_resource type="Texture2D" uid="uid://cfqodqhsc6u18" path="res://adds/UI/00.png" id="4_ot5br"]
+[ext_resource type="PackedScene" uid="uid://cgk2v5krlytlo" path="res://spark_fx.tscn" id="6_hw88b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3ttk"]
 atlas = ExtResource("4_ot5br")
@@ -14,6 +16,10 @@ filter_clip = true
 atlas = ExtResource("4_ot5br")
 region = Rect2(218, 16, 18, 16)
 filter_clip = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoy62"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg8dr"]
 atlas = ExtResource("4_br6ix")
@@ -238,15 +244,17 @@ texture_disabled = SubResource("AtlasTexture_pmd2r")
 stretch_mode = 5
 
 [node name="Act1name" type="Label" parent="ActionContainer/Action1"]
+material = ExtResource("4_bec43")
 layout_mode = 0
-offset_left = 97.327
-offset_top = 10.0
-offset_right = 157.327
-offset_bottom = 40.0
+offset_left = 96.3132
+offset_top = 1.0
+offset_right = 216.313
+offset_bottom = 41.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 30
-text = "吃奶"
+text = "瀑布修行"
+label_settings = SubResource("LabelSettings_eoy62")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -257,6 +265,10 @@ sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
 speed_scale = 1.5
+
+[node name="Act1Fx" parent="ActionContainer/Action1" instance=ExtResource("6_hw88b")]
+position = Vector2(121.659, 10)
+scale = Vector2(1, -1)
 
 [node name="Action2" type="TextureButton" parent="ActionContainer"]
 layout_mode = 0
@@ -271,6 +283,7 @@ texture_disabled = SubResource("AtlasTexture_pmd2r")
 stretch_mode = 5
 
 [node name="Act2name" type="Label" parent="ActionContainer/Action2"]
+material = ExtResource("4_bec43")
 layout_mode = 0
 offset_left = 97.327
 offset_top = 10.0
@@ -291,6 +304,10 @@ frame = 8
 frame_progress = 1.0
 speed_scale = 1.5
 
+[node name="Act2Fx" parent="ActionContainer/Action2" instance=ExtResource("6_hw88b")]
+position = Vector2(121.659, 10)
+scale = Vector2(1, -1)
+
 [node name="Action3" type="TextureButton" parent="ActionContainer"]
 layout_mode = 0
 offset_left = 699.0
@@ -298,12 +315,14 @@ offset_top = 532.0
 offset_right = 821.0
 offset_bottom = 582.0
 scale = Vector2(0.986365, 1)
+action_mode = 0
 texture_normal = SubResource("AtlasTexture_l3ttk")
 texture_pressed = SubResource("AtlasTexture_pmd2r")
 texture_disabled = SubResource("AtlasTexture_pmd2r")
 stretch_mode = 5
 
 [node name="Act3name" type="Label" parent="ActionContainer/Action3"]
+material = ExtResource("4_bec43")
 layout_mode = 0
 offset_left = 97.327
 offset_top = 10.0
@@ -324,6 +343,13 @@ frame = 8
 frame_progress = 1.0
 speed_scale = 1.5
 
+[node name="Act3Fx" parent="ActionContainer/Action3" instance=ExtResource("6_hw88b")]
+position = Vector2(121.659, 10)
+scale = Vector2(1, -1)
+
 [connection signal="pressed" from="ActionContainer/Action1" to="." method="_on_action_1_pressed"]
+[connection signal="animation_finished" from="ActionContainer/Action1/Act1Timer" to="." method="_on_act_timer_animation_finished"]
 [connection signal="pressed" from="ActionContainer/Action2" to="." method="_on_action_2_pressed"]
+[connection signal="animation_finished" from="ActionContainer/Action2/Act2Timer" to="." method="_on_act_timer_animation_finished"]
 [connection signal="pressed" from="ActionContainer/Action3" to="." method="_on_action_3_pressed"]
+[connection signal="animation_finished" from="ActionContainer/Action3/Act3Timer" to="." method="_on_act_timer_animation_finished"]
