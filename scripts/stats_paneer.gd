@@ -30,6 +30,7 @@ signal button_ready
 @onready var act_1_fx: AnimatedSprite2D = $ActionContainer/Action1/Act1Fx
 @onready var act_2_fx: AnimatedSprite2D = $ActionContainer/Action2/Act2Fx
 @onready var act_3_fx: AnimatedSprite2D = $ActionContainer/Action3/Act3Fx
+@onready var gender: Label = $gender
 @export var stats: Player_Stats
 
 var act1_func
@@ -78,6 +79,7 @@ func _ready() -> void:
 	stats.speed_change.connect(update_speed)
 	stats.luck_change.connect(update_luck)
 	stats.ap_change.connect(update_ap)
+	gender.text = str(stats.gender)
 	act_point_num.text = str(action_point)
 	health_num.text = str(stats.health)
 	atk_num.text = str(stats.atk)
@@ -119,12 +121,10 @@ func update_luck() -> void:
 func disable_button() -> void:
 	for button: TextureButton in action_container.get_children():
 		button.disabled = true
-
 func able_button() -> void:
 	for button: TextureButton in action_container.get_children():
 		button.disabled = false
 	button_ready.emit()
-
 func refresh_button() -> void:
 	act1_func = make_button(act_1_name,act_1_fx)
 	act2_func = make_button(act_2_name,act_2_fx)
@@ -168,43 +168,65 @@ func show_fx(act_fx: AnimatedSprite2D, param) -> void:
 	if param in sp_properties_key:
 		act_fx.play("sp")
 
+func handle_genshin_0(count:int) -> void:
+	stats.health = stats.health * (1 + 0.1 * count)
+	stats.atk = stats.atk * (1 + 0.1 * count)
+	stats.def = stats.def * (1 + 0.1 * count)
+	stats.critical = stats.critical * (1 + 0.1 * count)
+	stats.criticalDamage = stats.criticalDamage * (1 + 0.1 * count)
+	stats.luck = stats.luck * (1 + 0.1 * count)
+	stats.speed = stats.speed * (1 + 0.1 * count)
+
 func handle_button(param: Array) -> void:
+	var genshin_0_count = stats.genshin_func.count(0)
+	var genshin_2_count = stats.genshin_func.count(2)
 	var button_func = param[0]
 	var button_value = param[1]
 	match button_func:
 		"hp" :
-			stats.health += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.health += (button_value * (1 + 0.1 * genshin_2_count))
 		"atk":
-			stats.atk += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.atk += (button_value * (1 + 0.1 * genshin_2_count))
 		"def": 
-			stats.def += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.def += (button_value * (1 + 0.1 * genshin_2_count))
 		"critical": 
-			stats.critical += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.critical += (button_value * (1 + 0.1 * genshin_2_count))
 		"criticalDamage":
-			stats.criticalDamage += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.criticalDamage += (button_value * (1 + 0.1 * genshin_2_count))
 		"luck":
-			stats.luck += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.luck += (button_value * (1 + 0.1 * genshin_2_count))
 		"speed":
-			stats.speed += button_value
+			action_point -= 1
+			handle_genshin_0(genshin_0_count)
+			stats.speed += (button_value * (1 + 0.1 * genshin_2_count))
 		"action_point":
-			action_point += button_value + 1
+			action_point += button_value
 
 func _on_action_1_pressed() -> void:
 	disable_button()
 	handle_button(act1_func)
-	action_point -= 1
 	act_1_timer.play()
 
 func _on_action_2_pressed() -> void:
 	disable_button()
 	handle_button(act2_func)
-	action_point -= 1
 	act_2_timer.play()
 
 func _on_action_3_pressed() -> void:
 	disable_button()
 	handle_button(act3_func)
-	action_point -= 1
 	act_3_timer.play()
 
 func _on_act_timer_animation_finished() -> void:

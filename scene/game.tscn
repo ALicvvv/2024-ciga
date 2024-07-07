@@ -22,24 +22,27 @@ color = Color(0, 0, 0, 0)
 
 [node name="Devil1_Stats" type="Node" parent="."]
 script = ExtResource("3_mqps0")
-init_health = 100.0
-init_atk = 100.0
-init_def = 100.0
-init_speed = 1.0
-critical = 0.3
+init_health = 100000.0
+init_atk = 100000.0
+init_def = 100000.0
+init_speed = 1.8
+critical = 0.4
+criticalDamage = 2.0
 
 [node name="Devil2_Stats" type="Node" parent="."]
 script = ExtResource("3_mqps0")
-init_health = 1000.0
-init_atk = 1000.0
-init_def = 1000.0
+init_health = 1e+06
+init_atk = 1e+06
+init_def = 1e+06
 init_speed = 1.0
-critical = 0.5
+critical = 0.6
+criticalDamage = 2.2
 
 [node name="Devil3_Stats" type="Node" parent="."]
 script = ExtResource("3_mqps0")
-init_health = 10000.0
-init_atk = 10000.0
-init_def = 10000.0
-init_speed = 1.0
-critical = 0.65
+init_health = 1e+07
+init_atk = 1e+07
+init_def = 1e+07
+init_speed = 1.2
+critical = 0.9
+criticalDamage = 3.0

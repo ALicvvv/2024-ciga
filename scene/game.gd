@@ -12,7 +12,6 @@ extends CanvasLayer
 @export var player_color_cur: String = "yellow"
 @export var player_color_before: String = "yellow"
 
-
 func _ready() -> void:
 	color_rect.color.a = 0
 
@@ -43,9 +42,11 @@ func new_game() -> void:
 	player_stats.action_points = player_stats.action_points
 
 func reSpawn() -> void:
-	player_stats.init_health = player_stats.init_health * 1.5
-	player_stats.init_atk = player_stats.init_atk * 1.5
-	player_stats.init_def = player_stats.init_def * 1.5
+	player_stats.gender += 1
+	var genshin_3_count = player_stats.genshin_func.count(3)
+	player_stats.init_health = player_stats.init_health * (1.2 + genshin_3_count * 0.15)
+	player_stats.init_atk = player_stats.init_atk * (1.2 + genshin_3_count * 0.15)
+	player_stats.init_def = player_stats.init_def * (1.2 + genshin_3_count * 0.15)
 	player_stats.init_luck = player_stats.init_luck
 	var lucky = randf()
 	if lucky <= player_stats.init_luck:
@@ -61,7 +62,7 @@ func go_to_battle() -> void:
 	player_stats.init_critical = player_stats.critical
 	player_stats.init_criticalDamage = player_stats.criticalDamage
 	player_stats.init_speed = player_stats.speed
-	
+	heal_devil()
 	change_scene("res://scene/battle_scene.tscn")
 
 func heal_devil() -> void:

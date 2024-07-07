@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyyswted8ilnn"]
+[gd_scene load_steps=6 format=3 uid="uid://cyyswted8ilnn"]
 
+[ext_resource type="PackedScene" uid="uid://cllsea4oih7s6" path="res://scene/dialog_scene.tscn" id="1_31g7i"]
 [ext_resource type="Script" path="res://DestoryArea.gd" id="1_fm518"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="1_ojf0v"]
 [ext_resource type="PackedScene" uid="uid://bpdoreldo3qts" path="res://card.tscn" id="1_u6pdl"]
@@ -14,6 +15,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DialogScene" parent="." instance=ExtResource("1_31g7i")]
+modulate = Color(0.568627, 0.568627, 0.568627, 1)
 
 [node name="DestoryArea" type="MarginContainer" parent="."]
 layout_mode = 0

@@ -101,3 +101,5 @@ func destory() -> void:
 	tween_destory = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween_destory.tween_property(material,"shader_parameter/dissolve_value", 0.0, 2.0).from(1.0)
 	tween_destory.parallel().tween_property(shadow,"self_modulate:a",0.0,1.0)
+	await tween_destory.finished
+	Game.new_game()

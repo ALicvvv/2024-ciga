@@ -69,9 +69,9 @@ func _ready() -> void:
 	player1.pHit.connect(handle_pdamage1)
 	player_1_animation.play("attack", -1, player_stats.speed)
 	
-	if 2 in Game.player_stats.genshin_func:
+	if 1 in Game.player_stats.genshin_func:
 		has_p2 = true
-		Game.player_stats.genshin_func.erase(2)
+		Game.player_stats.genshin_func.erase(1)
 		var p2_color = Game.player_color_cur
 		var player2_scene: PackedScene = knight_dict[p1_color]
 		var player2 = player2_scene.instantiate()
@@ -111,7 +111,7 @@ func handle_ddamage(d_damge, phealth) -> void:
 		if has_p2:
 			player_2_animation.play("dead")
 		await player_1_animation.animation_finished
-		Game.new_game()
+		Game.change_scene("res://choose_Genshin.tscn")
 
 func dpop_up(position:Vector2, damage:float):
 	var damage_scene = pdamage_node.instantiate()

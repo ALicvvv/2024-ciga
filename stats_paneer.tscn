@@ -102,7 +102,6 @@ grow_vertical = 2
 script = ExtResource("1_xm6tt")
 
 [node name="gender" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 16.0
@@ -112,7 +111,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vyrvi")
 theme_override_font_sizes/font_size = 57
 text = "幼年"
-metadata/_edit_lock_ = true
 
 [node name="age" type="Label" parent="."]
 visible = false
