@@ -32,6 +32,8 @@ func change_scene(path) -> void:
 	tween.tween_property(color_rect, "color:a", 0, duration)
 
 func new_game() -> void:
+
+	change_scene("res://scene/before_battle.tscn")
 	player_stats.health = player_stats.init_health
 	player_stats.atk = player_stats.init_atk
 	player_stats.def = player_stats.init_def
@@ -40,7 +42,6 @@ func new_game() -> void:
 	player_stats.criticalDamage = player_stats.init_criticalDamage
 	player_stats.speed = player_stats.init_speed
 	player_stats.action_points = player_stats.action_points
-	change_scene("res://scene/before_battle.tscn")
 
 func reSpawn() -> void:
 	player_stats.init_health = player_stats.init_health * 1.5
@@ -55,4 +56,17 @@ func reSpawn() -> void:
 
 
 func go_to_battle() -> void:
+	player_stats.init_health = player_stats.health
+	player_stats.init_atk = player_stats.atk
+	player_stats.init_def = player_stats.def
+	player_stats.init_luck = player_stats.luck
+	player_stats.init_critical = player_stats.critical
+	player_stats.init_criticalDamage = player_stats.criticalDamage
+	player_stats.init_speed = player_stats.speed
+	
 	change_scene("res://scene/battle_scene.tscn")
+
+func heal_devil() -> void:
+	devil_1_stats.health += (devil_1_stats.init_health - devil_1_stats.health) * 0.95
+	devil_2_stats.health += (devil_2_stats.init_health - devil_2_stats.health) * 0.95
+	devil_3_stats.health += (devil_3_stats.init_health - devil_3_stats.health) * 0.95

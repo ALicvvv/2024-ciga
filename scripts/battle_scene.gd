@@ -22,14 +22,11 @@ const knight_dict = {
 @onready var p_1_damge_pop: Marker2D = $p1_damge_pop
 @onready var p_2_damage_pop: Marker2D = $p2_damage_pop
 @onready var enemy_damage_pop: Marker2D = $enemy_damage_pop
-
+@onready var player_stats = Game.player_stats
 
 var knight_lst = ["yellow"]
-var player_stats = Game.player_stats
-
 var cur_devil = Game.current_devil
 var devil_Stats: Monster_Stats
-
 var player_1_animation: AnimationPlayer
 var p1_damge
 var player_2_animation: AnimationPlayer
@@ -67,7 +64,7 @@ func _ready() -> void:
 	p_1_hp_panner.show()
 	player_1_animation = player1.get_node("AnimationPlayer")
 	player1.pHit.connect(handle_pdamage)
-	player_1_animation.play("attack")
+	player_1_animation.play("attack", -1, player_stats.speed)
 
 func handle_pdamage(p_damge, dhealth) -> void:
 	var position = enemy_damage_pop.position

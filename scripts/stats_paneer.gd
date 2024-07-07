@@ -8,12 +8,18 @@ enum Gender{#for player
 }
 signal button_ready
 
-@onready var age_num: Label = $age/age_num
-@onready var health_num: Label = $health/health_num
-@onready var def_num: Label = $def/def_num
-@onready var atk_num: Label = $atk/atk_num
-@onready var gender: Label = $gender
 @onready var act_point_num: Label = $act_point/act_point_num
+@onready var health_num: Label = $dataPannel/health/health_num
+@onready var def_num: Label = $dataPannel/def/def_num
+@onready var atk_num: Label = $dataPannel/atk/atk_num
+@onready var critical_num: Label = $dataPannel/critical/critical_num
+@onready var critical_damage_num: Label = $dataPannel/criticalDamage/criticalDamage_num
+@onready var speed_num: Label = $dataPannel/speed/speed_num
+@onready var luck_num: Label = $dataPannel/luck/luck_num
+
+
+
+
 
 @onready var action_container: Control = $ActionContainer
 @onready var act_1_name: Label = $ActionContainer/Action1/Act1name
@@ -38,11 +44,11 @@ var bar_percentage: float
 var promoted_properties_dict = {
 	"hp" : ["吃奶","吃牛","提升意志"],
 	"atk": ["打木桩","打石头"],
-	"def": ["吞剑"],
+	"def": ["吞剑","搓盐"],
 	"critical" : ["练太极"],
 	"criticalDamage" : ["开爆"],
 	"luck" : ["冥想","瀑布修行"],
-	"speed" : ["吃奶"],
+	"speed" : ["手艺活","短跑"],
 	"action_point": ["再冲一次！！"]
 }
 var promoted_properties_value_dict = {
@@ -66,27 +72,51 @@ func _ready() -> void:
 	stats = Game.player_stats
 	action_point = stats.action_points
 	print("[行动点]: %s" % [action_point])
-	stats.age_change.connect(update_age)
+	stats.health_change.connect(update_hp)
+	stats.atk_change.connect(update_atk)
+	stats.def_change.connect(update_def)
+	stats.critical_change.connect(update_critical)
+	stats.criticalDamage_change.connect(update_critical_damage)
+	stats.speed_change.connect(update_speed)
+	stats.luck_change.connect(update_luck)
 	stats.ap_change.connect(update_ap)
 	act_point_num.text = str(action_point)
 	health_num.text = str(stats.health)
 	atk_num.text = str(stats.atk)
 	def_num.text = str(stats.def)
+	critical_num.text = str(stats.critical * 100) + "%"
+	critical_damage_num.text = str(stats.criticalDamage * 100) + "%"
+	speed_num.text = str(stats.speed * 100)
+	luck_num.text = str(stats.luck * 10)
 	refresh_button()
 
-func update_age() -> void:
-	age_num.text = str(stats.age)
-	if 0 <= stats.age && stats.age < 12:
-		gender.text = "幼年"
-	elif 12 <= stats.age && stats.age < 24:
-		gender.text = "青年"
-	elif 24 <= stats.age && stats.age < 50:
-		gender.text = "成年"
-	else:
-		gender.text = "老年"
+#func update_age() -> void: #弃用
+	#age_num.text = str(stats.age)
+	#if 0 <= stats.age && stats.age < 12:
+		#gender.text = "幼年"
+	#elif 12 <= stats.age && stats.age < 24:
+		#gender.text = "青年"
+	#elif 24 <= stats.age && stats.age < 50:
+		#gender.text = "成年"
+	#else:
+		#gender.text = "老年"
 
 func update_ap() -> void:
 	act_point_num.text = str(action_point)
+func update_hp() -> void:
+	health_num.text = str(stats.health)
+func update_atk() -> void:
+	atk_num.text = str(stats.atk)
+func update_def() -> void:
+	def_num.text = str(stats.def)
+func update_critical() -> void:
+	critical_num.text = str(stats.critical * 100) + "%"
+func update_critical_damage() -> void:
+	critical_damage_num.text = str(stats.criticalDamage * 100) + "%"
+func update_speed() -> void:
+	speed_num.text = str(stats.speed * 100)
+func update_luck() -> void:
+	luck_num.text = str(stats.luck * 10)
 
 func disable_button() -> void:
 	for button: TextureButton in action_container.get_children():
@@ -101,6 +131,10 @@ func refresh_button() -> void:
 	act1_func = make_button(act_1_name,act_1_fx)
 	act2_func = make_button(act_2_name,act_2_fx)
 	act3_func = make_button(act_3_name,act_3_fx)
+	print("-------------------------------------------------------")
+	print(act1_func)
+	print(act2_func)
+	print(act3_func)
 	able_button()
 
 func make_button(act_label:Label, act_fx: AnimatedSprite2D) -> Array:
@@ -125,7 +159,7 @@ func make_button(act_label:Label, act_fx: AnimatedSprite2D) -> Array:
 		act_name_lst = promoted_properties_dict[act_func]
 	act_label.text = act_name_lst.pick_random()
 	show_fx(act_fx, act_func)
-	print("[%s] - %s|%s|%s",[act_label.name,act_label.text,act_func,act_value])
+	print("[%s] - %s|%s|%s"%[act_label.name,act_label.text,act_func,act_value])
 	return [act_func, act_value]
 
 func show_fx(act_fx: AnimatedSprite2D, param) -> void:
@@ -136,24 +170,26 @@ func show_fx(act_fx: AnimatedSprite2D, param) -> void:
 	if param in sp_properties_key:
 		act_fx.play("sp")
 
-func handle_button(param) -> void:
-	match param:
+func handle_button(param: Array) -> void:
+	var button_func = param[0]
+	var button_value = param[1]
+	match button_func:
 		"hp" :
-			pass
+			stats.health += button_value
 		"atk":
-			pass
+			stats.atk += button_value
 		"def": 
-			pass
+			stats.def += button_value
 		"critical": 
-			pass
+			stats.critical += button_value
 		"criticalDamage":
-			pass
+			stats.criticalDamage += button_value
 		"luck":
-			pass
+			stats.luck += button_value
 		"speed":
-			pass
+			stats.speed += button_value
 		"action_point":
-			pass
+			action_point += button_value + 1
 
 func _on_action_1_pressed() -> void:
 	disable_button()

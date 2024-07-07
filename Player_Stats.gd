@@ -6,6 +6,9 @@ signal atk_change
 signal def_change
 signal age_change
 signal speed_change
+signal luck_change
+signal critical_change
+signal criticalDamage_change
 signal ap_change
 enum Gender{#for player
 	CHILD, #0 <= age < 12
@@ -59,7 +62,22 @@ enum Gender{#for player
 			return
 		speed = v
 		speed_change.emit()
-@export var critical: float = 0
-@export var criticalDamage: float = 0
-@export var luck: float = 0
+@onready var critical: float = 0:
+	set(v):
+		if critical == v:
+			return
+		critical = v
+		critical_change.emit()
+@onready var criticalDamage: float = 0:
+	set(v):
+		if criticalDamage == v:
+			return
+		criticalDamage = v
+		criticalDamage_change.emit()
+@onready var luck: float = 0:
+	set(v):
+		if luck == v:
+			return
+		luck = v
+		luck_change.emit()
 @onready var colorChoose: String

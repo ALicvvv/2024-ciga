@@ -9,7 +9,7 @@ script = ExtResource("1_7fxj1")
 
 [node name="Player_Stats" type="Node" parent="."]
 script = ExtResource("2_wn11q")
-init_speed = 1.0
+init_speed = 0.8
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
