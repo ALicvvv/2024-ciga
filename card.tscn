@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpdoreldo3qts"]
+
+[ext_resource type="Shader" path="res://card_dissolve.gdshader" id="1_7wia7"]
+[ext_resource type="Texture2D" uid="uid://bec4iictrfpei" path="res://adds/Micro_Ground.png" id="1_divjk"]
+[ext_resource type="Script" path="res://card.gd" id="1_e1hb4"]
+[ext_resource type="Shader" path="res://Fake3D.gdshader" id="2_3bn5g"]
+[ext_resource type="Texture2D" uid="uid://dmnqqok612de1" path="res://adds/R.png" id="2_by7cl"]
+[ext_resource type="Texture2D" uid="uid://cc6hq2obijhk6" path="res://adds/cards/yuezhanyueyong.png" id="6_wspn1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrjnh"]
+shader = ExtResource("1_7wia7")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/dissolve_texture = ExtResource("2_by7cl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26x38"]
+shader = ExtResource("2_3bn5g")
+shader_parameter/FOV = 90.0
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/call_back = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh7rh"]
+size = Vector2(272, 424)
+
+[node name="Card" type="Control"]
+material = SubResource("ShaderMaterial_jrjnh")
+layout_mode = 3
+anchor_right = 0.145
+anchor_bottom = 0.403
+offset_right = 112.96
+offset_bottom = 170.856
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.598488, 0.605)
+script = ExtResource("1_e1hb4")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.0862745)
+layout_mode = 0
+offset_right = 295.0
+offset_bottom = 445.0
+texture = ExtResource("1_divjk")
+
+[node name="CardTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_26x38")
+layout_mode = 0
+offset_right = 295.0
+offset_bottom = 445.0
+texture = ExtResource("6_wspn1")
+
+[node name="DestoryArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestoryArea"]
+position = Vector2(136, 212)
+shape = SubResource("RectangleShape2D_xh7rh")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
