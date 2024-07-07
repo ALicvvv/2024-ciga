@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dugjhtynwks0k"]
+[gd_scene load_steps=10 format=3 uid="uid://dugjhtynwks0k"]
 
 [ext_resource type="Script" path="res://scripts/before_battle.gd" id="1_q7y84"]
 [ext_resource type="PackedScene" uid="uid://cjf6lhsxamlrp" path="res://stats_paneer.tscn" id="1_rtwjc"]
 [ext_resource type="Texture2D" uid="uid://dtonsbmxv2cmh" path="res://adds/env/bg/live/Hills Layer 01.png" id="7_byeq2"]
 [ext_resource type="Texture2D" uid="uid://d16b7l5qieub4" path="res://adds/env/bg/live/Hills Layer 02.png" id="8_28qpl"]
 [ext_resource type="Texture2D" uid="uid://daej27rxeftf3" path="res://adds/env/bg/live/Hills Layer 03.png" id="9_0b3bn"]
+[ext_resource type="AudioStream" uid="uid://c0lxirjv22cgt" path="res://audios/summer_hill1.mp3" id="9_42kjo"]
 [ext_resource type="Texture2D" uid="uid://cepbm15qb5iah" path="res://adds/env/bg/live/Hills Layer 05.png" id="11_punqy"]
 [ext_resource type="Texture2D" uid="uid://4iv7xtathiq2" path="res://adds/env/bg/live/Hills Layer 06.png" id="12_8y7ll"]
 [ext_resource type="PackedScene" uid="uid://b50cdr423bibx" path="res://scene/mekami.tscn" id="12_sm16k"]
@@ -64,3 +65,8 @@ texture = ExtResource("12_8y7ll")
 [node name="mekami" parent="." instance=ExtResource("12_sm16k")]
 position = Vector2(1042, 560)
 scale = Vector2(3.72, 3.72)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_42kjo")
+volume_db = -10.0
+autoplay = true

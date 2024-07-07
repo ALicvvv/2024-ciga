@@ -1,34 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://cllsea4oih7s6"]
+[gd_scene load_steps=12 format=3 uid="uid://dkmn8rf03qc0q"]
 
-[ext_resource type="Texture2D" uid="uid://cpegqmvvw1vsk" path="res://adds/env/bg/dialog/Sky.png" id="1_3mak2"]
-[ext_resource type="Script" path="res://scripts/dialog_scene.gd" id="1_rrr7i"]
-[ext_resource type="Texture2D" uid="uid://baykjd4t7nmkw" path="res://adds/env/bg/dialog/BackGround.png" id="2_cpaia"]
-[ext_resource type="PackedScene" uid="uid://b50cdr423bibx" path="res://scene/mekami.tscn" id="3_lwjxw"]
-[ext_resource type="Texture2D" uid="uid://b450kp20sgt2w" path="res://adds/characters/pawn/Pawn_Yellow.png" id="4_jav5e"]
-[ext_resource type="AudioStream" uid="uid://dy5167pddk2r" path="res://audios/drum_rythm1.mp3" id="6_5u26n"]
+[ext_resource type="Texture2D" uid="uid://cpegqmvvw1vsk" path="res://adds/env/bg/dialog/Sky.png" id="2_vi1be"]
+[ext_resource type="Texture2D" uid="uid://baykjd4t7nmkw" path="res://adds/env/bg/dialog/BackGround.png" id="3_smsdf"]
+[ext_resource type="PackedScene" uid="uid://b50cdr423bibx" path="res://scene/mekami.tscn" id="4_jlhh6"]
+[ext_resource type="Texture2D" uid="uid://b450kp20sgt2w" path="res://adds/characters/pawn/Pawn_Yellow.png" id="5_fi5x3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fnf8"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tw3d"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnti7"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqcrv"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rykrg"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1k6e"]
-atlas = ExtResource("4_jav5e")
+atlas = ExtResource("5_fi5x3")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4c7dk"]
@@ -57,11 +55,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DialogScene" type="Node2D"]
-script = ExtResource("1_rrr7i")
+[node name="BG" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_rrr7i")
 
 [node name="BackGround1" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(366, 214)
@@ -69,7 +65,7 @@ position = Vector2(366, 214)
 [node name="Sky" type="Sprite2D" parent="ParallaxBackground/BackGround1"]
 position = Vector2(212.5, 105.5)
 scale = Vector2(1.82656, 1.84722)
-texture = ExtResource("1_3mak2")
+texture = ExtResource("2_vi1be")
 
 [node name="BackGround2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(366, 214)
@@ -77,9 +73,9 @@ position = Vector2(366, 214)
 [node name="BackGround" type="Sprite2D" parent="ParallaxBackground/BackGround2"]
 position = Vector2(223, -211)
 scale = Vector2(1.87969, 3.6)
-texture = ExtResource("2_cpaia")
+texture = ExtResource("3_smsdf")
 
-[node name="mekami" parent="." instance=ExtResource("3_lwjxw")]
+[node name="mekami" parent="." instance=ExtResource("4_jlhh6")]
 position = Vector2(812, 306)
 scale = Vector2(2.62563, 2.62563)
 
@@ -88,7 +84,3 @@ position = Vector2(465, 432)
 sprite_frames = SubResource("SpriteFrames_4c7dk")
 autoplay = "default"
 frame_progress = 0.8055
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_5u26n")
-autoplay = true

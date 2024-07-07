@@ -113,7 +113,7 @@ func handle_ddamage(d_damge, phealth) -> void:
 		if has_p2:
 			player_2_animation.play("dead")
 		await player_1_animation.animation_finished
-		Game.change_scene("res://choose_Genshin.tscn")
+		Game.change_scene("res://scene/dialog_scene.tscn")
 
 func dpop_up(position:Vector2, damage:float):
 	var damage_scene = pdamage_node.instantiate()

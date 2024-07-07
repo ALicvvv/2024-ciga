@@ -8,6 +8,10 @@ enum Gender{#for player
 }
 signal button_ready
 
+@onready var b_1 = $B1
+@onready var b_2 = $B2
+@onready var b_3 = $B3
+
 @onready var act_point_num: Label = $act_point/act_point_num
 @onready var health_num: Label = $dataPannel/health/health_num
 @onready var def_num: Label = $dataPannel/def/def_num
@@ -217,16 +221,19 @@ func handle_button(param: Array) -> void:
 func _on_action_1_pressed() -> void:
 	disable_button()
 	handle_button(act1_func)
+	b_1.play()
 	act_1_timer.play()
 
 func _on_action_2_pressed() -> void:
 	disable_button()
 	handle_button(act2_func)
+	b_2.play()
 	act_2_timer.play()
 
 func _on_action_3_pressed() -> void:
 	disable_button()
 	handle_button(act3_func)
+	b_3.play()
 	act_3_timer.play()
 
 func _on_act_timer_animation_finished() -> void:

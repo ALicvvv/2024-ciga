@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var devil_1_stats: Monster_Stats = $Devil1_Stats
 @onready var devil_2_stats: Monster_Stats = $Devil2_Stats
 @onready var devil_3_stats: Monster_Stats = $Devil3_Stats
+@export var is_first_failed: bool = true
 
 @onready var color_rect: ColorRect = $ColorRect
 

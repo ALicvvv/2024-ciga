@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://cofumfm2uk15f"]
+
+[ext_resource type="Script" path="res://scene/lst.gd" id="1_el8vx"]
+[ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="1_w262f"]
+[ext_resource type="Texture2D" uid="uid://dtonsbmxv2cmh" path="res://adds/env/bg/live/Hills Layer 01.png" id="2_aphm2"]
+[ext_resource type="Texture2D" uid="uid://d16b7l5qieub4" path="res://adds/env/bg/live/Hills Layer 02.png" id="3_bo06b"]
+[ext_resource type="Texture2D" uid="uid://daej27rxeftf3" path="res://adds/env/bg/live/Hills Layer 03.png" id="4_ebagt"]
+[ext_resource type="Texture2D" uid="uid://cepbm15qb5iah" path="res://adds/env/bg/live/Hills Layer 05.png" id="5_bc885"]
+[ext_resource type="Texture2D" uid="uid://4iv7xtathiq2" path="res://adds/env/bg/live/Hills Layer 06.png" id="6_mcmjp"]
+[ext_resource type="Texture2D" uid="uid://c8vxt0gx3y3m5" path="res://adds/env/bg/battle/background4a.png" id="7_ryoih"]
+[ext_resource type="AudioStream" uid="uid://dy5167pddk2r" path="res://audios/drum_rythm1.mp3" id="9_6mgfs"]
+
+[node name="Lst" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_el8vx")
+
+[node name="M1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 196.0
+offset_right = 228.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_w262f")
+theme_override_font_sizes/font_size = 60
+text = "华组"
+
+[node name="M2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 296.0
+offset_right = 407.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_w262f")
+theme_override_font_sizes/font_size = 60
+text = "欧神"
+
+[node name="M3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 182.0
+offset_right = 637.0
+offset_bottom = 242.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_w262f")
+theme_override_font_sizes/font_size = 60
+text = "希神"
+
+[node name="M4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 322.0
+offset_right = 914.0
+offset_bottom = 382.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_w262f")
+theme_override_font_sizes/font_size = 60
+text = "杰瑞球"
+
+[node name="M5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 168.0
+offset_right = 1125.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_w262f")
+theme_override_font_sizes/font_size = 60
+text = "ZZ"
+
+[node name="BackGround" type="ParallaxBackground" parent="."]
+
+[node name="BackGround1" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround1"]
+position = Vector2(208.7, 112.6)
+scale = Vector2(2.25898, 2.55781)
+texture = ExtResource("2_aphm2")
+
+[node name="BackGround2" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround2"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("3_bo06b")
+
+[node name="BackGround3" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround3"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("4_ebagt")
+
+[node name="BackGround5" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround5"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_bc885")
+
+[node name="BackGround6" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround6"]
+position = Vector2(258, 112)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("6_mcmjp")
+
+[node name="BackGround7" type="ParallaxLayer" parent="BackGround"]
+position = Vector2(366, 214)
+scale = Vector2(0.545, 0.545)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackGround7"]
+position = Vector2(381.651, 203.67)
+scale = Vector2(2.20979, 2.51177)
+texture = ExtResource("7_ryoih")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6mgfs")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_time_out"]

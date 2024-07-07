@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwdklh1fpy2dx"]
+[gd_scene load_steps=12 format=3 uid="uid://bwdklh1fpy2dx"]
 
 [ext_resource type="Theme" uid="uid://d1ffx7807ybtq" path="res://hud_theme.tres" id="1_fv56j"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_55eiy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cepbm15qb5iah" path="res://adds/env/bg/live/Hills Layer 05.png" id="8_1n7t3"]
 [ext_resource type="Texture2D" uid="uid://4iv7xtathiq2" path="res://adds/env/bg/live/Hills Layer 06.png" id="9_avvpy"]
 [ext_resource type="Texture2D" uid="uid://c8vxt0gx3y3m5" path="res://adds/env/bg/battle/background4a.png" id="10_knshx"]
+[ext_resource type="AudioStream" uid="uid://dy5167pddk2r" path="res://audios/drum_rythm1.mp3" id="11_umvrr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,6 +41,12 @@ layout_mode = 2
 theme = ExtResource("2_64w6x")
 text = "开始游戏"
 script = ExtResource("2_55eiy")
+
+[node name="Exit2" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme = ExtResource("2_64w6x")
+text = "消耗品"
 
 [node name="Exit" type="Button" parent="Menu"]
 custom_minimum_size = Vector2(200, 60)
@@ -117,5 +124,10 @@ position = Vector2(381.651, 203.67)
 scale = Vector2(2.20979, 2.51177)
 texture = ExtResource("10_knshx")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_umvrr")
+autoplay = true
+
 [connection signal="pressed" from="Menu/StartGame" to="Menu/StartGame" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Exit2" to="Menu/StartGame" method="_on_exit_2_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="Menu/StartGame" method="_on_exit_pressed"]

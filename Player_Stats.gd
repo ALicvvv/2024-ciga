@@ -35,6 +35,7 @@ enum Gender{#for player
 		ap_change.emit()
 @export var gender: int = 1
 
+@export var isFirst: bool = true
 @onready var health: float = init_health:
 	set(v):
 		if health == v:

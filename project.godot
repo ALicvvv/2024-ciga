@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="2024-ciga"
+run/main_scene="res://scene/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +23,10 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 [dialogue_manager]
 
 general/balloon_path="res://dialog/balloon.tscn"
+
+[display]
+
+window/size/resizable=false
 
 [editor_plugins]
 
@@ -37,7 +42,7 @@ test={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialog/failed.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialog/failed.dialogue", "res://dialog/normal.dialogue")
 
 [rendering]
 

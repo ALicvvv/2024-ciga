@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjf6lhsxamlrp"]
+[gd_scene load_steps=23 format=3 uid="uid://cjf6lhsxamlrp"]
 
 [ext_resource type="Script" path="res://scripts/stats_paneer.gd" id="1_xm6tt"]
 [ext_resource type="FontFile" uid="uid://hmkar6t25yux" path="res://adds/fonts/DinkieBitmap-9pxDemo.ttf" id="2_vyrvi"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://e3brtk0a2lt0" path="res://adds/UI/07.png" id="4_br6ix"]
 [ext_resource type="Texture2D" uid="uid://cfqodqhsc6u18" path="res://adds/UI/00.png" id="4_ot5br"]
 [ext_resource type="PackedScene" uid="uid://cgk2v5krlytlo" path="res://spark_fx.tscn" id="6_hw88b"]
+[ext_resource type="AudioStream" uid="uid://bp884aco07ctp" path="res://audios/button03b.mp3" id="7_0wrq8"]
+[ext_resource type="AudioStream" uid="uid://y5yewbx6exh0" path="res://audios/button04a.mp3" id="8_kr6df"]
+[ext_resource type="AudioStream" uid="uid://d63yr8fe5bmv" path="res://audios/button04b.mp3" id="9_mymqj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3ttk"]
 atlas = ExtResource("4_ot5br")
@@ -363,7 +366,7 @@ scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 4.0
+speed_scale = 3.0
 
 [node name="Act1Fx" parent="ActionContainer/Action1" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
@@ -401,7 +404,7 @@ scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 4.0
+speed_scale = 3.0
 
 [node name="Act2Fx" parent="ActionContainer/Action2" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
@@ -435,16 +438,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Act3Timer" type="AnimatedSprite2D" parent="ActionContainer/Action3"]
-position = Vector2(60.8294, 15)
+position = Vector2(57.7879, 12)
 scale = Vector2(4.43548, 4.375)
 sprite_frames = SubResource("SpriteFrames_3lfvf")
 frame = 8
 frame_progress = 1.0
-speed_scale = 4.0
+speed_scale = 3.0
 
 [node name="Act3Fx" parent="ActionContainer/Action3" instance=ExtResource("6_hw88b")]
 position = Vector2(121.659, 10)
 scale = Vector2(1, -1)
+
+[node name="B1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0wrq8")
+volume_db = -13.0
+
+[node name="B2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kr6df")
+volume_db = -13.0
+
+[node name="B3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mymqj")
+volume_db = -13.0
 
 [connection signal="pressed" from="ActionContainer/Action1" to="." method="_on_action_1_pressed"]
 [connection signal="animation_finished" from="ActionContainer/Action1/Act1Timer" to="." method="_on_act_timer_animation_finished"]

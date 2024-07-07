@@ -3,7 +3,8 @@ extends CharacterBody2D
 signal pHit(pDamge, target_hp)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var timer: Timer = $Timer
+@onready var timer = $Timer
+
 
 #@export var damage_node:PackedScene
 
