@@ -5,5 +5,6 @@ func _on_exit_pressed():
 
 
 func _on_pressed():
+	
 	Game.new_game()
 	
